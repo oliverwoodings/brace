@@ -28,12 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/lua', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/lua_highlight_rules', 'ace/mode/folding/lua', 'ace/range', 'ace/worker/worker_client'], function(acequire, exports, module) {
+ace.define('ace/mode/lua', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/lua_highlight_rules', 'ace/mode/folding/lua', 'ace/range', 'ace/worker/worker_client'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var LuaHighlightRules = acequire("./lua_highlight_rules").LuaHighlightRules;
 var LuaFoldMode = acequire("./folding/lua").FoldMode;
 var Range = acequire("../range").Range;
@@ -154,6 +153,7 @@ oop.inherits(Mode, TextMode);
         return worker;
     };
 
+    this.$id = "ace/mode/lua";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
@@ -212,7 +212,7 @@ var LuaHighlightRules = function() {
         "constant.library": stdLibaries,
         "constant.language": builtinConstants,
         "invalid.illegal": futureReserved,
-        "variable.language": "this"
+        "variable.language": "self"
     }, "identifier");
 
     var decimalInteger = "(?:(?:[1-9]\\d*)|(?:0))";

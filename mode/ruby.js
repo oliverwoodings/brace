@@ -28,12 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/ruby', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/ruby_highlight_rules', 'ace/mode/matching_brace_outdent', 'ace/range', 'ace/mode/folding/coffee'], function(acequire, exports, module) {
+ace.define('ace/mode/ruby', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/ruby_highlight_rules', 'ace/mode/matching_brace_outdent', 'ace/range', 'ace/mode/folding/coffee'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var RubyHighlightRules = acequire("./ruby_highlight_rules").RubyHighlightRules;
 var MatchingBraceOutdent = acequire("./matching_brace_outdent").MatchingBraceOutdent;
 var Range = acequire("../range").Range;
@@ -63,7 +62,7 @@ oop.inherits(Mode, TextMode);
 
         if (state == "start") {
             var match = line.match(/^.*[\{\(\[]\s*$/);
-            var startingClassOrMethod = line.match(/^\s*(class|def)\s.*$/);
+            var startingClassOrMethod = line.match(/^\s*(class|def|module)\s.*$/);
             var startingDoBlock = line.match(/.*do(\s*|\s+\|.*\|\s*)$/);
             var startingConditional = line.match(/^\s*(if|else)\s*/)
             if (match || startingClassOrMethod || startingDoBlock || startingConditional) {
@@ -85,6 +84,7 @@ oop.inherits(Mode, TextMode);
             doc.remove(new Range(row, indent.length-tab.length, row, indent.length));
     };
 
+    this.$id = "ace/mode/ruby";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

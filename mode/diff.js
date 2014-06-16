@@ -28,12 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/diff', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/diff_highlight_rules', 'ace/mode/folding/diff'], function(acequire, exports, module) {
+ace.define('ace/mode/diff', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/diff_highlight_rules', 'ace/mode/folding/diff'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var HighlightRules = acequire("./diff_highlight_rules").DiffHighlightRules;
 var FoldMode = acequire("./folding/diff").FoldMode;
 
@@ -45,6 +44,7 @@ oop.inherits(Mode, TextMode);
 
 (function() {
 
+    this.$id = "ace/mode/diff";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

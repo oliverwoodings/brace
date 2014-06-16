@@ -28,12 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/tcl', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/folding/cstyle', 'ace/mode/tcl_highlight_rules', 'ace/mode/matching_brace_outdent', 'ace/range'], function(acequire, exports, module) {
+ace.define('ace/mode/tcl', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/folding/cstyle', 'ace/mode/tcl_highlight_rules', 'ace/mode/matching_brace_outdent', 'ace/range'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var CStyleFoldMode = acequire("./folding/cstyle").FoldMode;
 var TclHighlightRules = acequire("./tcl_highlight_rules").TclHighlightRules;
 var MatchingBraceOutdent = acequire("./matching_brace_outdent").MatchingBraceOutdent;
@@ -78,6 +77,7 @@ oop.inherits(Mode, TextMode);
         this.$outdent.autoOutdent(doc, row);
     };
 
+    this.$id = "ace/mode/tcl";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

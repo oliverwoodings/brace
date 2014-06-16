@@ -28,12 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/sh', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/sh_highlight_rules', 'ace/range', 'ace/mode/folding/cstyle'], function(acequire, exports, module) {
+ace.define('ace/mode/sh', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/sh_highlight_rules', 'ace/range', 'ace/mode/folding/cstyle'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var ShHighlightRules = acequire("./sh_highlight_rules").ShHighlightRules;
 var Range = acequire("../range").Range;
 var CStyleFoldMode = acequire("./folding/cstyle").FoldMode;
@@ -104,6 +103,7 @@ oop.inherits(Mode, TextMode);
             doc.remove(new Range(row, indent.length-tab.length, row, indent.length));
     };
 
+    this.$id = "ace/mode/sh";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

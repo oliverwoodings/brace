@@ -35,12 +35,11 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  *
  */
-ace.define('ace/mode/rdoc', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/text_highlight_rules', 'ace/mode/rdoc_highlight_rules', 'ace/mode/matching_brace_outdent'], function(acequire, exports, module) {
+ace.define('ace/mode/rdoc', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/text_highlight_rules', 'ace/mode/rdoc_highlight_rules', 'ace/mode/matching_brace_outdent'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var TextHighlightRules = acequire("./text_highlight_rules").TextHighlightRules;
 var RDocHighlightRules = acequire("./rdoc_highlight_rules").RDocHighlightRules;
 var MatchingBraceOutdent = acequire("./matching_brace_outdent").MatchingBraceOutdent;
@@ -55,6 +54,7 @@ oop.inherits(Mode, TextMode);
     this.getNextLineIndent = function(state, line, tab) {
         return this.$getIndent(line);
     };
+    this.$id = "ace/mode/rdoc";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

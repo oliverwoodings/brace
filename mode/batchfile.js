@@ -33,12 +33,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/batchfile', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/batchfile_highlight_rules', 'ace/mode/folding/cstyle'], function(acequire, exports, module) {
+ace.define('ace/mode/batchfile', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/batchfile_highlight_rules', 'ace/mode/folding/cstyle'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var BatchFileHighlightRules = acequire("./batchfile_highlight_rules").BatchFileHighlightRules;
 var FoldMode = acequire("./folding/cstyle").FoldMode;
 
@@ -51,6 +50,7 @@ oop.inherits(Mode, TextMode);
 (function() {
     this.lineCommentStart = "::";
     this.blockComment = "";
+    this.$id = "ace/mode/batchfile";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

@@ -33,12 +33,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/haml', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/haml_highlight_rules', 'ace/mode/folding/coffee'], function(acequire, exports, module) {
+ace.define('ace/mode/haml', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/haml_highlight_rules', 'ace/mode/folding/coffee'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var HamlHighlightRules = acequire("./haml_highlight_rules").HamlHighlightRules;
 var FoldMode = acequire("./folding/coffee").FoldMode;
 
@@ -51,6 +50,7 @@ oop.inherits(Mode, TextMode);
 (function() {
     this.lineCommentStart = ["//", "#"];
     
+    this.$id = "ace/mode/haml";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

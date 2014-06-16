@@ -1,9 +1,8 @@
-ace.define('ace/mode/dot', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/matching_brace_outdent', 'ace/mode/dot_highlight_rules', 'ace/mode/folding/cstyle'], function(acequire, exports, module) {
+ace.define('ace/mode/dot', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/matching_brace_outdent', 'ace/mode/dot_highlight_rules', 'ace/mode/folding/cstyle'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var MatchingBraceOutdent = acequire("./matching_brace_outdent").MatchingBraceOutdent;
 var DotHighlightRules = acequire("./dot_highlight_rules").DotHighlightRules;
 var DotFoldMode = acequire("./folding/cstyle").FoldMode;
@@ -49,6 +48,7 @@ oop.inherits(Mode, TextMode);
         this.$outdent.autoOutdent(doc, row);
     };
 
+    this.$id = "ace/mode/dot";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

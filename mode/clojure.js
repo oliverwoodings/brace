@@ -28,12 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/clojure', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/clojure_highlight_rules', 'ace/mode/matching_parens_outdent', 'ace/range'], function(acequire, exports, module) {
+ace.define('ace/mode/clojure', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/clojure_highlight_rules', 'ace/mode/matching_parens_outdent', 'ace/range'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var ClojureHighlightRules = acequire("./clojure_highlight_rules").ClojureHighlightRules;
 var MatchingParensOutdent = acequire("./matching_parens_outdent").MatchingParensOutdent;
 var Range = acequire("../range").Range;
@@ -80,6 +79,7 @@ oop.inherits(Mode, TextMode);
         this.$outdent.autoOutdent(doc, row);
     };
 
+    this.$id = "ace/mode/clojure";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

@@ -28,12 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/plain_text', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/text_highlight_rules', 'ace/mode/behaviour'], function(acequire, exports, module) {
+ace.define('ace/mode/plain_text', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/text_highlight_rules', 'ace/mode/behaviour'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var TextHighlightRules = acequire("./text_highlight_rules").TextHighlightRules;
 var Behaviour = acequire("./behaviour").Behaviour;
 
@@ -49,6 +48,7 @@ oop.inherits(Mode, TextMode);
     this.getNextLineIndent = function(state, line, tab) {
         return '';
     };
+    this.$id = "ace/mode/plain_text";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

@@ -28,10 +28,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/coffee', ["require", 'exports', 'module' , 'ace/tokenizer', 'ace/mode/coffee_highlight_rules', 'ace/mode/matching_brace_outdent', 'ace/mode/folding/coffee', 'ace/range', 'ace/mode/text', 'ace/worker/worker_client', 'ace/lib/oop'], function(acequire, exports, module) {
+ace.define('ace/mode/coffee', ["require", 'exports', 'module' , 'ace/mode/coffee_highlight_rules', 'ace/mode/matching_brace_outdent', 'ace/mode/folding/coffee', 'ace/range', 'ace/mode/text', 'ace/worker/worker_client', 'ace/lib/oop'], function(acequire, exports, module) {
 
 
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var Rules = acequire("./coffee_highlight_rules").CoffeeHighlightRules;
 var Outdent = acequire("./matching_brace_outdent").MatchingBraceOutdent;
 var FoldMode = acequire("./folding/coffee").FoldMode;
@@ -49,8 +48,7 @@ function Mode() {
 oop.inherits(Mode, TextMode);
 
 (function() {
-    
-    var indenter = /(?:[({[=:]|[-=]>|\b(?:else|switch|try|catch(?:\s*[$A-Za-z_\x7f-\uffff][$\w\x7f-\uffff]*)?|finally))\s*$/;
+    var indenter = /(?:[({[=:]|[-=]>|\b(?:else|try|(?:swi|ca)tch(?:\s+[$A-Za-z_\x7f-\uffff][$\w\x7f-\uffff]*)?|finally))\s*$|^\s*(else\b\s*)?(?:if|for|while|loop)\b(?!.*\bthen\b)/;
     var commentLine = /^(\s*)#/;
     var hereComment = /^\s*###(?!#)/;
     var indentation = /^\s*/;
@@ -107,6 +105,7 @@ oop.inherits(Mode, TextMode);
         return worker;
     };
 
+    this.$id = "ace/mode/coffee";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

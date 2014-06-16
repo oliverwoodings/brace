@@ -17,13 +17,13 @@ var workersrcdir =  path.join(braceroot, 'workersrc');
 var workerdir    =  path.join(braceroot, 'worker');
 var buildroot    =  path.join(__dirname, 'ace-build');
 
-var aceTag = '3bded0bc1b5b51f74afd2f8dafb768ab8f35b00b';  // 2013.12.02 Version 1.1.2 - tag missing
+var aceTag = '22a16b2a3f54ac96613be5ab95150f2d89cb5b4b';  // 2013.12.02 Version 1.1.2 - tag missing
 
 +function updateCleanAndPutInOrder() {
 
   +function cloneFreshAndRemoveUnneeded() {
     rm('-rf', buildroot) 
-    exec('git clone git://github.com/ajaxorg/ace-builds.git ' + buildroot);
+    exec('git clone git://github.com/oliverwoodings/ace-builds.git ' + buildroot);
     exec('(cd ' + buildroot + ' && git pull && git checkout ' + aceTag + ')');
 
     [ 'demo', 'kitchen-sink', 'src-min-noconflict', 'src-min', 'src', 'textarea' ]

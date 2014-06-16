@@ -33,12 +33,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/pascal', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/pascal_highlight_rules', 'ace/mode/folding/coffee'], function(acequire, exports, module) {
+ace.define('ace/mode/pascal', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/pascal_highlight_rules', 'ace/mode/folding/coffee'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var PascalHighlightRules = acequire("./pascal_highlight_rules").PascalHighlightRules;
 var FoldMode = acequire("./folding/coffee").FoldMode;
 
@@ -56,6 +55,7 @@ oop.inherits(Mode, TextMode);
         {start: "{", end: "}"}
     ];
     
+    this.$id = "ace/mode/pascal";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

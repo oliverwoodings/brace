@@ -33,12 +33,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/makefile', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/makefile_highlight_rules', 'ace/mode/folding/coffee'], function(acequire, exports, module) {
+ace.define('ace/mode/makefile', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/makefile_highlight_rules', 'ace/mode/folding/coffee'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var MakefileHighlightRules = acequire("./makefile_highlight_rules").MakefileHighlightRules;
 var FoldMode = acequire("./folding/coffee").FoldMode;
 
@@ -53,6 +52,7 @@ oop.inherits(Mode, TextMode);
     this.lineCommentStart = "#";    
     this.$indentWithTabs = true;
     
+    this.$id = "ace/mode/makefile";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

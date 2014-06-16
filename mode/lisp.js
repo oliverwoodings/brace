@@ -29,12 +29,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/lisp', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/lisp_highlight_rules'], function(acequire, exports, module) {
+ace.define('ace/mode/lisp', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/lisp_highlight_rules'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var LispHighlightRules = acequire("./lisp_highlight_rules").LispHighlightRules;
 
 var Mode = function() {
@@ -46,6 +45,7 @@ oop.inherits(Mode, TextMode);
        
     this.lineCommentStart = ";";
     
+    this.$id = "ace/mode/lisp";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

@@ -28,12 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/asciidoc', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/asciidoc_highlight_rules', 'ace/mode/folding/asciidoc'], function(acequire, exports, module) {
+ace.define('ace/mode/asciidoc', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/asciidoc_highlight_rules', 'ace/mode/folding/asciidoc'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var AsciidocHighlightRules = acequire("./asciidoc_highlight_rules").AsciidocHighlightRules;
 var AsciidocFoldMode = acequire("./folding/asciidoc").FoldMode;
 
@@ -58,6 +57,7 @@ oop.inherits(Mode, TextMode);
             return this.$getIndent(line);
         }
     };
+    this.$id = "ace/mode/asciidoc";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

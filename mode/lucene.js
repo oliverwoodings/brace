@@ -1,16 +1,19 @@
-ace.define('ace/mode/lucene', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/lucene_highlight_rules'], function(acequire, exports, module) {
+ace.define('ace/mode/lucene', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/lucene_highlight_rules'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var LuceneHighlightRules = acequire("./lucene_highlight_rules").LuceneHighlightRules;
 
 var Mode = function() {
-    this.$tokenizer =  new Tokenizer(new LuceneHighlightRules().getRules());
+    this.HighlightRules = LuceneHighlightRules;
 };
 
 oop.inherits(Mode, TextMode);
+
+(function() {
+    this.$id = "ace/mode/lucene";
+}).call(Mode.prototype);
 
 exports.Mode = Mode;
 });ace.define('ace/mode/lucene_highlight_rules', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/lib/lang', 'ace/mode/text_highlight_rules'], function(acequire, exports, module) {

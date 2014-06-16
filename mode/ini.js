@@ -28,12 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/ini', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/ini_highlight_rules', 'ace/mode/folding/ini'], function(acequire, exports, module) {
+ace.define('ace/mode/ini', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/ini_highlight_rules', 'ace/mode/folding/ini'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var IniHighlightRules = acequire("./ini_highlight_rules").IniHighlightRules;
 var FoldMode = acequire("./folding/ini").FoldMode;
 
@@ -46,6 +45,7 @@ oop.inherits(Mode, TextMode);
 (function() {
     this.lineCommentStart = ";";
     this.blockComment = {start: "/*", end: "*/"};
+    this.$id = "ace/mode/ini";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

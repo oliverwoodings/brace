@@ -35,12 +35,11 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  *
  */
-ace.define('ace/mode/tex', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/text_highlight_rules', 'ace/mode/tex_highlight_rules', 'ace/mode/matching_brace_outdent'], function(acequire, exports, module) {
+ace.define('ace/mode/tex', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/text_highlight_rules', 'ace/mode/tex_highlight_rules', 'ace/mode/matching_brace_outdent'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var TextHighlightRules = acequire("./text_highlight_rules").TextHighlightRules;
 var TexHighlightRules = acequire("./tex_highlight_rules").TexHighlightRules;
 var MatchingBraceOutdent = acequire("./matching_brace_outdent").MatchingBraceOutdent;
@@ -62,6 +61,7 @@ oop.inherits(Mode, TextMode);
    this.allowAutoInsert = function() {
       return false;
    };
+    this.$id = "ace/mode/tex";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

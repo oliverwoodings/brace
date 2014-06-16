@@ -1,9 +1,8 @@
-ace.define('ace/mode/snippets', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/text_highlight_rules', 'ace/mode/folding/coffee'], function(acequire, exports, module) {
+ace.define('ace/mode/snippets', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/text_highlight_rules', 'ace/mode/folding/coffee'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var TextHighlightRules = acequire("./text_highlight_rules").TextHighlightRules;
 
 var SnippetHighlightRules = function() {
@@ -103,6 +102,7 @@ oop.inherits(Mode, TextMode);
 
 (function() {
     this.$indentWithTabs = true;
+    this.$id = "ace/mode/snippets";
 }).call(Mode.prototype);
 exports.Mode = Mode;
 

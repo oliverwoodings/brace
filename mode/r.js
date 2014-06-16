@@ -35,13 +35,12 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  *
  */
-ace.define('ace/mode/r', ["require", 'exports', 'module' , 'ace/range', 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/text_highlight_rules', 'ace/mode/r_highlight_rules', 'ace/mode/matching_brace_outdent', 'ace/unicode'], function(acequire, exports, module) {
+ace.define('ace/mode/r', ["require", 'exports', 'module' , 'ace/range', 'ace/lib/oop', 'ace/mode/text', 'ace/mode/text_highlight_rules', 'ace/mode/r_highlight_rules', 'ace/mode/matching_brace_outdent', 'ace/unicode'], function(acequire, exports, module) {
    
 
    var Range = acequire("../range").Range;
    var oop = acequire("../lib/oop");
    var TextMode = acequire("./text").Mode;
-   var Tokenizer = acequire("../tokenizer").Tokenizer;
    var TextHighlightRules = acequire("./text_highlight_rules").TextHighlightRules;
    var RHighlightRules = acequire("./r_highlight_rules").RHighlightRules;
    var MatchingBraceOutdent = acequire("./matching_brace_outdent").MatchingBraceOutdent;
@@ -57,6 +56,7 @@ ace.define('ace/mode/r', ["require", 'exports', 'module' , 'ace/range', 'ace/lib
    (function()
    {
       this.lineCommentStart = "#";
+       this.$id = "ace/mode/r";
    }).call(Mode.prototype);
    exports.Mode = Mode;
 });

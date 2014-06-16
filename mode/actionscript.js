@@ -33,12 +33,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/actionscript', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/actionscript_highlight_rules', 'ace/mode/folding/cstyle'], function(acequire, exports, module) {
+ace.define('ace/mode/actionscript', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/actionscript_highlight_rules', 'ace/mode/folding/cstyle'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var ActionScriptHighlightRules = acequire("./actionscript_highlight_rules").ActionScriptHighlightRules;
 var FoldMode = acequire("./folding/cstyle").FoldMode;
 
@@ -51,6 +50,7 @@ oop.inherits(Mode, TextMode);
 (function() {
     this.lineCommentStart = "//";
     this.blockComment = {start: "/*", end: "*/"};
+    this.$id = "ace/mode/actionscript";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

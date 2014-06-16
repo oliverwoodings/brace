@@ -33,12 +33,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/autohotkey', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/autohotkey_highlight_rules', 'ace/mode/folding/cstyle'], function(acequire, exports, module) {
+ace.define('ace/mode/autohotkey', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/autohotkey_highlight_rules', 'ace/mode/folding/cstyle'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var AutoHotKeyHighlightRules = acequire("./autohotkey_highlight_rules").AutoHotKeyHighlightRules;
 var FoldMode = acequire("./folding/cstyle").FoldMode;
 
@@ -51,6 +50,7 @@ oop.inherits(Mode, TextMode);
 (function() {
     this.lineCommentStart = "/\\*";
     this.blockComment = {start: "/*", end: "*/"};
+    this.$id = "ace/mode/autohotkey";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

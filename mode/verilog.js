@@ -28,12 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/verilog', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/verilog_highlight_rules', 'ace/range'], function(acequire, exports, module) {
+ace.define('ace/mode/verilog', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/verilog_highlight_rules', 'ace/range'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var VerilogHighlightRules = acequire("./verilog_highlight_rules").VerilogHighlightRules;
 var Range = acequire("../range").Range;
 
@@ -47,6 +46,7 @@ oop.inherits(Mode, TextMode);
     this.lineCommentStart = "//";
     this.blockComment = {start: "/*", end: "*/"};
 
+    this.$id = "ace/mode/verilog";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

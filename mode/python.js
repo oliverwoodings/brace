@@ -28,12 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/python', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/python_highlight_rules', 'ace/mode/folding/pythonic', 'ace/range'], function(acequire, exports, module) {
+ace.define('ace/mode/python', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/python_highlight_rules', 'ace/mode/folding/pythonic', 'ace/range'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var PythonHighlightRules = acequire("./python_highlight_rules").PythonHighlightRules;
 var PythonFoldMode = acequire("./folding/pythonic").FoldMode;
 var Range = acequire("../range").Range;
@@ -103,6 +102,7 @@ oop.inherits(Mode, TextMode);
             doc.remove(new Range(row, indent.length-tab.length, row, indent.length));
     };
 
+    this.$id = "ace/mode/python";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

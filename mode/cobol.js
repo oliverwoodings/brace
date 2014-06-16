@@ -28,12 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/cobol', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/cobol_highlight_rules', 'ace/range'], function(acequire, exports, module) {
+ace.define('ace/mode/cobol', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/cobol_highlight_rules', 'ace/range'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var CobolHighlightRules = acequire("./cobol_highlight_rules").CobolHighlightRules;
 var Range = acequire("../range").Range;
 
@@ -46,6 +45,7 @@ oop.inherits(Mode, TextMode);
 
     this.lineCommentStart = "*";
 
+    this.$id = "ace/mode/cobol";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

@@ -1,9 +1,8 @@
-ace.define('ace/mode/latex', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/latex_highlight_rules', 'ace/mode/folding/latex', 'ace/range'], function(acequire, exports, module) {
+ace.define('ace/mode/latex', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/latex_highlight_rules', 'ace/mode/folding/latex', 'ace/range'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var LatexHighlightRules = acequire("./latex_highlight_rules").LatexHighlightRules;
 var LatexFoldMode = acequire("./folding/latex").FoldMode;
 var Range = acequire("../range").Range;
@@ -17,6 +16,7 @@ oop.inherits(Mode, TextMode);
 (function() {
     this.lineCommentStart = "%";
 
+    this.$id = "ace/mode/latex";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

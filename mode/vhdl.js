@@ -27,12 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-ace.define('ace/mode/vhdl', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/vhdl_highlight_rules', 'ace/range'], function(acequire, exports, module) {
+ace.define('ace/mode/vhdl', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/vhdl_highlight_rules', 'ace/range'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var VHDLHighlightRules = acequire("./vhdl_highlight_rules").VHDLHighlightRules;
 var Range = acequire("../range").Range;
 
@@ -45,6 +44,7 @@ oop.inherits(Mode, TextMode);
 
     this.lineCommentStart = "--";
 
+    this.$id = "ace/mode/vhdl";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

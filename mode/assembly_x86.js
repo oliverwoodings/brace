@@ -29,12 +29,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/assembly_x86', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/assembly_x86_highlight_rules', 'ace/mode/folding/coffee'], function(acequire, exports, module) {
+ace.define('ace/mode/assembly_x86', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/assembly_x86_highlight_rules', 'ace/mode/folding/coffee'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var AssemblyX86HighlightRules = acequire("./assembly_x86_highlight_rules").AssemblyX86HighlightRules;
 var FoldMode = acequire("./folding/coffee").FoldMode;
 
@@ -46,6 +45,7 @@ oop.inherits(Mode, TextMode);
 
 (function() {
     this.lineCommentStart = ";";
+    this.$id = "ace/mode/assembly_x86";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

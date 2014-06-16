@@ -28,13 +28,12 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/mushcode', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/mushcode_high_rules', 'ace/mode/folding/pythonic', 'ace/range'], function(acequire, exports, module) {
+ace.define('ace/mode/mushcode', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/mushcode_highlight_rules', 'ace/mode/folding/pythonic', 'ace/range'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
-var MushCodeRules = acequire("./mushcode_high_rules").MushCodeRules;
+var MushCodeRules = acequire("./mushcode_highlight_rules").MushCodeRules;
 var PythonFoldMode = acequire("./folding/pythonic").FoldMode;
 var Range = acequire("../range").Range;
 
@@ -103,12 +102,13 @@ oop.inherits(Mode, TextMode);
             doc.remove(new Range(row, indent.length-tab.length, row, indent.length));
     };
 
+    this.$id = "ace/mode/mushcode";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
 });
 
-ace.define('ace/mode/mushcode_high_rules', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text_highlight_rules'], function(acequire, exports, module) {
+ace.define('ace/mode/mushcode_highlight_rules', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text_highlight_rules'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");

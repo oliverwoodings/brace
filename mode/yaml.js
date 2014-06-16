@@ -28,12 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/yaml', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/yaml_highlight_rules', 'ace/mode/matching_brace_outdent', 'ace/mode/folding/coffee'], function(acequire, exports, module) {
+ace.define('ace/mode/yaml', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/yaml_highlight_rules', 'ace/mode/matching_brace_outdent', 'ace/mode/folding/coffee'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var YamlHighlightRules = acequire("./yaml_highlight_rules").YamlHighlightRules;
 var MatchingBraceOutdent = acequire("./matching_brace_outdent").MatchingBraceOutdent;
 var FoldMode = acequire("./folding/coffee").FoldMode;
@@ -71,6 +70,7 @@ oop.inherits(Mode, TextMode);
     };
 
 
+    this.$id = "ace/mode/yaml";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
@@ -132,9 +132,6 @@ var YamlHighlightRules = function() {
             }, {
                 token : "constant.language.boolean",
                 regex : "(?:true|false|TRUE|FALSE|True|False|yes|no)\\b"
-            }, {
-                token : "invalid.illegal", // comments are not allowed
-                regex : "\\/\\/.*$"
             }, {
                 token : "paren.lparen",
                 regex : "[[({]"

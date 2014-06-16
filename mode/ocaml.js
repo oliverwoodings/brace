@@ -28,12 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/mode/ocaml', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/ocaml_highlight_rules', 'ace/mode/matching_brace_outdent', 'ace/range'], function(acequire, exports, module) {
+ace.define('ace/mode/ocaml', ["require", 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/mode/ocaml_highlight_rules', 'ace/mode/matching_brace_outdent', 'ace/range'], function(acequire, exports, module) {
 
 
 var oop = acequire("../lib/oop");
 var TextMode = acequire("./text").Mode;
-var Tokenizer = acequire("../tokenizer").Tokenizer;
 var OcamlHighlightRules = acequire("./ocaml_highlight_rules").OcamlHighlightRules;
 var MatchingBraceOutdent = acequire("./matching_brace_outdent").MatchingBraceOutdent;
 var Range = acequire("../range").Range;
@@ -90,6 +89,7 @@ var indenter = /(?:[({[=:]|[-=]>|\b(?:else|try|with))\s*$/;
         this.$outdent.autoOutdent(doc, row);
     };
 
+    this.$id = "ace/mode/ocaml";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
